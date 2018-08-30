@@ -18,6 +18,28 @@ Git hooks can get parameters via command-line arguments and stdin. Husky makes t
 }
 ```
 
+## Allow user's existing hooks
+
+See https://github.com/typicode/husky/issues/336 for more information.
+
+Preset `installType` in `package.json` before `npm install @moyuyc/husky`
+
+`installType` could be one of `overwrite/append/skip`
+
+- `overwrite`: overwriting the previous user's hook
+- `append`: appending husky script to the previous user's hook
+- `skip`: skipping husky when has existing user's hooks
+
+```json
+{
+  "husky": {
+    "installType": "append",
+    "hooks": {
+    }
+  }
+}
+```
+
 ## Disable auto-install
 
 If you don't want `husky` to automatically install Git hooks, simply set `HUSKY_SKIP_INSTALL` environment variable to `true`.

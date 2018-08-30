@@ -13,7 +13,7 @@ _You're viewing the documentation for the next version of husky, click [here](ht
 ## Install
 
 ```sh
-npm install husky@next --save-dev
+npm install @moyuyc/husky --save-dev
 ```
 
 ```js
@@ -33,12 +33,12 @@ npm install husky@next --save-dev
 git commit -m 'Keep calm and commit'
 ```
 
-Check [documentation](https://github.com/typicode/husky/blob/dev/DOCS.md) for more.
+Check [documentation](./DOCS.md) for more.
 
 ## Uninstall
 
 ```sh
-npm uninstall husky
+npm uninstall @moyuyc/husky
 ```
 
 ## Upgrading from 0.14
