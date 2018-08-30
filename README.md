@@ -2,6 +2,8 @@
 
 # husky [![](https://img.shields.io/npm/dm/husky.svg?style=flat)](https://www.npmjs.org/package/husky) [![Mac/Linux Build Status](https://img.shields.io/travis/typicode/husky/dev.svg?label=Mac%20OSX%20%26%20Linux)](https://travis-ci.org/typicode/husky) [![Windows Build status](https://img.shields.io/appveyor/ci/typicode/husky/dev.svg?label=Windows)](https://ci.appveyor.com/project/typicode/husky/dev)
 
+**Release temporarily for https://github.com/typicode/husky/issues/336**
+
 > Git hooks made easy
 
 Husky can prevent bad `git commit`, `git push` and more :dog: _woof!_
