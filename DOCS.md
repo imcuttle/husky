@@ -22,7 +22,7 @@ Git hooks can get parameters via command-line arguments and stdin. Husky makes t
 
 See https://github.com/typicode/husky/issues/336 for more information.
 
-Preset `installType` in `package.json` before `npm install @moyuyc/husky`
+Preset `installType` in `package.json` before `npm un husky && npm install @moyuyc/husky -D`
 
 `installType` could be one of `overwrite/append/skip`
 
