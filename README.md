@@ -16,14 +16,11 @@ _To all the amazing people who have answered the Husky survey, thanks so much <3
 
 ## Install
 
-```sh
-npm install @moyuyc/husky --save-dev
-```
-
 ```js
 // package.json
 {
   "husky": {
+    "installType": "append",
     "hooks": {
       "pre-commit": "npm test",
       "pre-push": "npm test",
@@ -31,6 +28,12 @@ npm install @moyuyc/husky --save-dev
     }
   }
 }
+```
+
+[More information](./DOCS.md#allow-users-existing-hooks) about `installType` option.
+
+```sh
+npm install @moyuyc/husky --save-dev
 ```
 
 ```sh
