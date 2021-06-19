@@ -11,13 +11,13 @@ describe('hookScript', () => {
   it('should match snapshot (OS X/Linux)', () => {
     const script = getScript(rootDir, huskyDir, runNodePath, 'darwin')
     expect(script).toMatchSnapshot()
-    expect(script).toMatch('_husky-run')
+    expect(script).toMatch('husky-run')
   })
 
   it('should match snapshot (Windows)', () => {
     const script = getScript(rootDir, huskyDir, runNodePath, 'win32')
 
     expect(script).toMatchSnapshot()
-    expect(script).toMatch('_husky-run')
+    expect(script).toMatch('husky-run')
   })
 })

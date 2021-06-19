@@ -151,7 +151,7 @@ describe('install', () => {
     installFrom('A/B/node_modules/husky', 'A/B/node_modules/.bin/run-node')
     const hook = readFile('.git/hooks/pre-commit')
 
-    expect(hook).toMatch('_husky-run')
+    expect(hook).toMatch('husky-run')
 
     uninstallFrom('A/B/node_modules/husky')
     expect(exists('.git/hooks/pre-commit')).toBeFalsy()
@@ -166,7 +166,7 @@ describe('install', () => {
     installFrom('A/B/node_modules/husky', 'A/B/node_modules/.bin/run-node')
     const hook = readFile('.git/modules/A/B/hooks/pre-commit')
 
-    expect(hook).toMatch('_husky-run')
+    expect(hook).toMatch('husky-run')
 
     uninstallFrom('A/B/node_modules/husky')
     expect(exists('.git/modules/A/B/hooks/pre-commit')).toBeFalsy()
@@ -181,7 +181,7 @@ describe('install', () => {
     installFrom('A/B/C/node_modules/husky', 'A/B/C/node_modules/.bin/run-node')
     const hook = readFile('.git/modules/A/B/hooks/pre-commit')
 
-    expect(hook).toMatch('_husky-run')
+    expect(hook).toMatch('husky-run')
 
     uninstallFrom('A/B/C/node_modules/husky')
     expect(exists('.git/hooks/pre-push')).toBeFalsy()
@@ -199,7 +199,7 @@ describe('install', () => {
 
     const hook = readFile('.git/worktrees/B/hooks/pre-commit')
 
-    expect(hook).toMatch('_husky-run')
+    expect(hook).toMatch('husky-run')
 
     uninstallFrom('A/B/node_modules/husky')
     expect(exists('.git/worktrees/B/hooks/pre-commit')).toBeFalsy()

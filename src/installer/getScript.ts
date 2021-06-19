@@ -31,7 +31,7 @@ fi
 }
 
 
-npx --no-install _husky-run $hookName "$gitParams"
+npx --no-install husky-run $hookName "$gitParams"
 exit_status=$?
 
 if [ "$exit_status" == "127" ]; then
