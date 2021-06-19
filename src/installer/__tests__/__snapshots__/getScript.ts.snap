@@ -3,7 +3,7 @@
 exports[`hookScript should match snapshot (OS X/Linux) 1`] = `
 "#!/bin/sh
 # husky
-# v1.1.1 darwin
+# v2.0.0-0 darwin
 
 hookName=\`basename \\"$0\\"\`
 gitParams=\\"$*\\"
@@ -27,7 +27,7 @@ fi
 exports[`hookScript should match snapshot (Windows) 1`] = `
 "#!/bin/sh
 # husky
-# v1.1.1 win32
+# v2.0.0-0 win32
 
 hookName=\`basename \\"$0\\"\`
 gitParams=\\"$*\\"
