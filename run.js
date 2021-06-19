@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const pleaseUpgradeNode = require('please-upgrade-node')
 const pkg = require('./package.json')
 

@@ -3,7 +3,8 @@
   "version": "1.1.1",
   "description": "Prevents bad commit or push (git hooks, pre-commit/precommit, pre-push/prepush, post-merge/postmerge and all that stuff...)",
   "bin": {
-    "husky-upgrade": "./lib/upgrader/bin.js"
+    "husky-upgrade": "./lib/upgrader/bin.js",
+    "_husky-run": "./run.js"
   },
   "engines": {
     "node": ">=6"

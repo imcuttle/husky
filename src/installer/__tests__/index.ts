@@ -1,7 +1,6 @@
 import * as del from 'del'
 import * as fs from 'fs'
 import * as mkdirp from 'mkdirp'
-import * as os from 'os'
 import * as path from 'path'
 import * as tempy from 'tempy'
 import { install, uninstall } from '../'
@@ -152,10 +151,7 @@ describe('install', () => {
     installFrom('A/B/node_modules/husky', 'A/B/node_modules/.bin/run-node')
     const hook = readFile('.git/hooks/pre-commit')
 
-    const node =
-      os.platform() !== 'win32' ? 'A/B/node_modules/.bin/run-node' : 'node'
-    expect(hook).toMatch(node)
-    expect(hook).toMatch('A/B/node_modules/husky/run.js')
+    expect(hook).toMatch('_husky-run')
 
     uninstallFrom('A/B/node_modules/husky')
     expect(exists('.git/hooks/pre-commit')).toBeFalsy()
@@ -170,10 +166,7 @@ describe('install', () => {
     installFrom('A/B/node_modules/husky', 'A/B/node_modules/.bin/run-node')
     const hook = readFile('.git/modules/A/B/hooks/pre-commit')
 
-    const node =
-      os.platform() !== 'win32' ? 'node_modules/.bin/run-node' : 'node'
-    expect(hook).toMatch(node)
-    expect(hook).toMatch('node_modules/husky/run.js')
+    expect(hook).toMatch('_husky-run')
 
     uninstallFrom('A/B/node_modules/husky')
     expect(exists('.git/modules/A/B/hooks/pre-commit')).toBeFalsy()
@@ -188,10 +181,7 @@ describe('install', () => {
     installFrom('A/B/C/node_modules/husky', 'A/B/C/node_modules/.bin/run-node')
     const hook = readFile('.git/modules/A/B/hooks/pre-commit')
 
-    const node =
-      os.platform() !== 'win32' ? 'C/node_modules/.bin/run-node' : 'node'
-    expect(hook).toMatch(node)
-    expect(hook).toMatch('C/node_modules/husky/run.js')
+    expect(hook).toMatch('_husky-run')
 
     uninstallFrom('A/B/C/node_modules/husky')
     expect(exists('.git/hooks/pre-push')).toBeFalsy()
@@ -209,10 +199,7 @@ describe('install', () => {
 
     const hook = readFile('.git/worktrees/B/hooks/pre-commit')
 
-    const node =
-      os.platform() !== 'win32' ? 'node_modules/.bin/run-node' : 'node'
-    expect(hook).toMatch(node)
-    expect(hook).toMatch('node_modules/husky/run.js')
+    expect(hook).toMatch('_husky-run')
 
     uninstallFrom('A/B/node_modules/husky')
     expect(exists('.git/worktrees/B/hooks/pre-commit')).toBeFalsy()
@@ -374,9 +361,6 @@ describe('install', () => {
     expect(readFile('.git/hooks/pre-commit')).not.toContain(
       'node_modules/.bin/run-node'
     )
-    if (os.platform() !== 'win32') {
-      expect(readFile('.git/hooks/pre-commit')).toContain('.bin/run-node')
-    }
     expect(readFile('.git/hooks/pre-commit.husky-user')).toBe('user')
 
     uninstallFrom(huskyDir)

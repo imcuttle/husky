@@ -14,11 +14,10 @@ interface IContext {
 export const huskyIdentifier = '# husky'
 
 // Render script
-const render = ({ node, platform, script, version }: IContext) => `#!/bin/sh
+const render = ({ platform, version }: IContext) => `#!/bin/sh
 ${huskyIdentifier}
 # v${version} ${platform}
 
-scriptPath="${script}.js"
 hookName=\`basename "$0"\`
 gitParams="$*"
 ${
@@ -30,9 +29,12 @@ fi
 `
     : ''
 }
-if [ -f $scriptPath ]; then
-  ${node} $scriptPath $hookName "$gitParams"
-else
+
+
+npx --no-install _husky-run $hookName "$gitParams"
+exit_status=$?
+
+if [ "$exit_status" == "127" ]; then
   echo "Can't find Husky, skipping $hookName hook"
   echo "You can reinstall it using 'npm install husky --save-dev' or delete this hook"
 fi
